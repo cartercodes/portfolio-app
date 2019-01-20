@@ -14,7 +14,7 @@ const pkg = require('./package.json');
 const banner = ['/*!\n',
   ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
   ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
+  ' * Licensed under <%= pkg.license %> (https://github.com/BlagulpckrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
   ' */\n',
   '\n'
 ].join('');
@@ -129,3 +129,11 @@ gulp.task("default", gulp.parallel('vendor', css, js));
 
 // dev task
 gulp.task("dev", gulp.parallel(watchFiles, browserSync));
+
+gulp.task('serveprod', function() {
+  connect.server({
+    root: [portfolio-appUI],
+    port: process.env.PORT || 3000, // localhost:5000
+    livereload: false
+  });
+});
