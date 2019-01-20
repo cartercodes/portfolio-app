@@ -132,7 +132,7 @@ gulp.task("dev", gulp.parallel(watchFiles, browserSync));
 
 gulp.task('serveprod', function() {
   connect.server({
-    root: [portfolio-appUI],
+    root: ['./'],
     port: process.env.PORT || 3000, // localhost:5000
     livereload: false
   });
